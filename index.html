@@ -12,7 +12,8 @@
     <header>
         <div class="logo">Flipkart</div>
         <input type="text" id="search" placeholder="Search for products" />
-        <button id="searchBtn">Search</button>
+        <!-- ✅ Added onclick to call JS search -->
+        <button id="searchBtn" onclick="handleSearch()">Search</button>
 
         <div class="cart">
             🛒 <span id="cartCount">0</span>
@@ -32,6 +33,7 @@
 
     <main>
         <h2>Top Products</h2>
+        <!-- ✅ Product list container (important for script.js) -->
         <div id="productContainer" class="product-list"></div>
     </main>
 
@@ -39,16 +41,17 @@
         <p>© 2025 Flipkart Clone | Made by Vaithi</p>
     </footer>
 
+    <!-- ✅ JS File link -->
     <script src="script.js"></script>
-    <!-- Product Modal -->
-<div id="productModal" class="modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);align-items:center;justify-content:center;">
-  <div style="background:#fff;border-radius:8px;padding:20px;max-width:700px;width:95%;">
-    <button id="closeModal" style="float:right;">Close</button>
-    <div id="modalContent"></div>
-  </div>
-</div>
+
+    <!-- ✅ Product Modal -->
+    <div id="productModal" class="modal"
+        style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);align-items:center;justify-content:center;">
+        <div style="background:#fff;border-radius:8px;padding:20px;max-width:700px;width:95%;">
+            <button id="closeModal" style="float:right;">Close</button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
 
 </body>
-
-
 </html>
