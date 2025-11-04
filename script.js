@@ -12,7 +12,6 @@ const products = [
     { id: 10, name: "Table", price: 15999, img: "table.jpg" }
 ];
 
-
 // 🧱 Show Products on Home Page
 function showProducts(items) {
     const container = document.getElementById("productContainer");
@@ -21,7 +20,7 @@ function showProducts(items) {
         const card = document.createElement("div");
         card.classList.add("product");
         card.innerHTML = `
-            <img src="${p.img}" alt="${p.name}">
+            <img src="${p.img}" alt="${p.name}" style="width:100%; height:200px; object-fit:cover; border-radius:10px;">
             <h3>${p.name}</h3>
             <p>₹${p.price}</p>
             <button class="addCartBtn" data-id="${p.id}">Add to Cart</button>
@@ -38,6 +37,7 @@ function handleSearch() {
     );
     showProducts(filtered);
 }
+
 document.getElementById("searchBtn").addEventListener("click", handleSearch);
 document.getElementById("search").addEventListener("keyup", (e) => {
     if (e.key === "Enter") handleSearch();
