@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flipkart Clone</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <div class="logo">Flipkart</div>
+        <input type="text" id="search" placeholder="Search for products" />
+        <button id="searchBtn">Search</button>
+
+        <div class="cart">
+            🛒 <span id="cartCount">0</span>
+        </div>
+        <a href="cart.html" class="cart-btn">View Cart</a>
+
+        <!-- 👤 Profile / Login area -->
+        <div id="userSection">
+            <a href="login.html" id="loginBtn" class="cart-btn">👤 Login</a>
+            <span id="userProfile" style="display:none;">
+                Welcome, <b id="userName"></b> |
+                <button id="logoutBtn"
+                    style="background:#2874f0;color:white;border:none;border-radius:5px;padding:5px 10px;cursor:pointer;">Logout</button>
+            </span>
+        </div>
+    </header>
+
+    <main>
+        <h2>Top Products</h2>
+        <div id="productContainer" class="product-list"></div>
+    </main>
+
+    <footer>
+        <p>© 2025 Flipkart Clone | Made by Vaithi</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

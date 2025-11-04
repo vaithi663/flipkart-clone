@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment | Flipkart Clone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f3f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .payment-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #2874f0;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            text-align: left;
+            margin: 10px 0;
+        }
+
+        .btn {
+            background-color: #2874f0;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background-color: #0f5dd6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="payment-box">
+        <h2>Choose Payment Method</h2>
+
+        <div class="option">
+            <input type="radio" name="payment" id="upi" value="UPI" checked>
+            <label for="upi">UPI (Google Pay / PhonePe / Paytm)</label>
+        </div>
+
+        <div class="option">
+            <input type="radio" name="payment" id="card" value="Card">
+            <label for="card">Credit / Debit Card</label>
+        </div>
+
+        <div class="option">
+            <input type="radio" name="payment" id="cod" value="COD">
+            <label for="cod">Cash on Delivery</label>
+        </div>
+
+        <button class="btn" onclick="proceedToSuccess()">Proceed to Pay</button>
+    </div>
+
+    <script>
+        function proceedToSuccess() {
+            const selected = document.querySelector('input[name="payment"]:checked').value;
+            localStorage.setItem("paymentMethod", selected);
+            window.location.href = "order-success.html";
+        }
+    </script>
+</body>
+
+</html>

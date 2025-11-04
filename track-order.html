@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Track Order | Flipkart Clone</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f3f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .track-box {
+            background: white;
+            width: 450px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        h2 {
+            color: #2874f0;
+            margin-bottom: 15px;
+        }
+
+        .status {
+            margin: 20px 0;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .bar {
+            height: 10px;
+            width: 100%;
+            background: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+
+        .progress {
+            height: 10px;
+            width: 0%;
+            background: #28a745;
+            transition: width 1s ease;
+        }
+
+        .btn {
+            background-color: #2874f0;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0f5dd6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="track-box">
+        <h2>📦 Track Your Order</h2>
+        <p id="orderId">Order ID: Loading...</p>
+        <div class="status" id="statusText">Processing...</div>
+        <div class="bar">
+            <div class="progress" id="progressBar"></div>
+        </div>
+        <button class="btn" onclick="window.location.href='index.html'">Back to Home</button>
+    </div>
+
+    <script>
+        // 🧾 Get order ID from localStorage or create one
+        let orderId = localStorage.getItem("orderId");
+        if (!orderId) {
+            orderId = "ORD" + Math.floor(100000 + Math.random() * 900000);
+            localStorage.setItem("orderId", orderId);
+        }
+        document.getElementById("orderId").textContent = "Order ID: " + orderId;
+
+        const statusText = document.getElementById("statusText");
+        const progressBar = document.getElementById("progressBar");
+
+        const statuses = ["Order Confirmed", "Shipped", "Out for Delivery", "Delivered ✅"];
+        let index = 0;
+
+        function updateStatus() {
+            if (index < statuses.length) {
+                statusText.textContent = statuses[index];
+                progressBar.style.width = (index + 1) * 25 + "%";
+                index++;
+                setTimeout(updateStatus, 2000);
+            }
+        }
+
+        updateStatus();
+    </script>
+</body>
+
+</html>
